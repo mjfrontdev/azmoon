@@ -64,24 +64,26 @@ const AuthPage = () => {
             ].map((feature, index) => (
               <motion.div 
                 key={index}
-                className="flex items-start space-x-4 space-x-reverse"
+                className="bg-card/50 border border-border/50 rounded-lg p-4 hover:bg-card/70 transition-colors"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 1.2 + (index * 0.1) }}
                 whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
               >
-                <motion.div 
-                  className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center"
-                  whileHover={{ rotate: 5, scale: 1.1 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <feature.icon className="w-6 h-6 text-primary" />
-                </motion.div>
-                <div>
-                  <h3 className="font-semibold text-foreground mb-1">{feature.title}</h3>
-                  <p className="text-sm text-muted-foreground">
-                    {feature.description}
-                  </p>
+                <div className="flex items-start space-x-6 space-x-reverse">
+                  <motion.div 
+                    className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center"
+                    whileHover={{ rotate: 5, scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <feature.icon className="w-6 h-6 text-primary" />
+                  </motion.div>
+                  <div className="flex-1">
+                    <h3 className="font-semibold text-foreground mb-1">{feature.title}</h3>
+                    <p className="text-sm text-muted-foreground">
+                      {feature.description}
+                    </p>
+                  </div>
                 </div>
               </motion.div>
             ))}

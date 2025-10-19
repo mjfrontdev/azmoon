@@ -92,7 +92,11 @@ const AdminDashboard = () => {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">
-                {stats.totalUsers > 0 ? Math.round((stats.totalResults / (stats.totalUsers * stats.totalExams)) * 100) : 0}%
+                {(() => {
+                  if (stats.totalUsers === 0 || stats.totalExams === 0) return '0%'
+                  const completionRate = (stats.totalResults / (stats.totalUsers * stats.totalExams)) * 100
+                  return isNaN(completionRate) ? '0%' : Math.round(completionRate) + '%'
+                })()}
               </div>
               <p className="text-xs text-muted-foreground">
                 میانگین تکمیل آزمون

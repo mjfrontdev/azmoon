@@ -15,6 +15,13 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    // Always initialize mock users in localStorage
+    const mockUsers = [
+      { id: 1, email: 'admin@azmoon.com', password: 'admin123', role: 'admin', name: 'مدیر سیستم', registeredAt: '2024-01-01T00:00:00.000Z' },
+      { id: 2, email: 'user@azmoon.com', password: 'user123', role: 'user', name: 'کاربر تست', registeredAt: '2024-01-15T00:00:00.000Z' }
+    ]
+    localStorage.setItem('azmoon_users', JSON.stringify(mockUsers))
+
     // Check for stored user data
     const storedUser = localStorage.getItem('azmoon_user')
     if (storedUser) {
@@ -25,35 +32,27 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      console.log('Login attempt:', { email, password })
-      
       // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 1000))
+      await new Promise(resolve => setTimeout(resolve, 500))
       
-      // Mock users data
-      const mockUsers = [
+      // Hardcoded users for immediate access
+      const hardcodedUsers = [
         { id: 1, email: 'admin@azmoon.com', password: 'admin123', role: 'admin', name: 'مدیر سیستم', registeredAt: '2024-01-01T00:00:00.000Z' },
         { id: 2, email: 'user@azmoon.com', password: 'user123', role: 'user', name: 'کاربر تست', registeredAt: '2024-01-15T00:00:00.000Z' }
       ]
       
-      console.log('Available users:', mockUsers)
-      
-      const foundUser = mockUsers.find(u => u.email === email && u.password === password)
-      console.log('Found user:', foundUser)
+      const foundUser = hardcodedUsers.find(u => u.email === email && u.password === password)
       
       if (foundUser) {
         const userData = { ...foundUser }
         delete userData.password // Don't store password
-        console.log('Setting user data:', userData)
         setUser(userData)
         localStorage.setItem('azmoon_user', JSON.stringify(userData))
         return { success: true, user: userData }
       } else {
-        console.log('User not found')
         return { success: false, error: 'ایمیل یا رمز عبور اشتباه است' }
       }
     } catch (error) {
-      console.error('Login error:', error)
       return { success: false, error: 'خطا در ورود به سیستم' }
     }
   }
