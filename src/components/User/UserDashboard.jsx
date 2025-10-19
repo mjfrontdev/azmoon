@@ -63,7 +63,7 @@ const UserDashboard = () => {
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="flex items-center space-x-4 space-x-reverse">
+              <div className="flex items-center space-x-6 space-x-reverse">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                   <User className="w-6 h-6 text-primary" />
                 </div>
@@ -72,7 +72,7 @@ const UserDashboard = () => {
                   <p className="text-sm text-muted-foreground">نام و نام خانوادگی</p>
                 </div>
               </div>
-              <div className="flex items-center space-x-4 space-x-reverse">
+              <div className="flex items-center space-x-6 space-x-reverse">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                   <Mail className="w-5 h-5 text-primary" />
                 </div>
@@ -81,7 +81,7 @@ const UserDashboard = () => {
                   <p className="text-sm text-muted-foreground">ایمیل</p>
                 </div>
               </div>
-              <div className="flex items-center space-x-4 space-x-reverse">
+              <div className="flex items-center space-x-6 space-x-reverse">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
                   <Calendar className="w-5 h-5 text-primary" />
                 </div>
