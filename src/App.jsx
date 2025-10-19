@@ -12,7 +12,7 @@ import 'aos/dist/aos.css'
 
 // Protected Route Component
 const ProtectedRoute = ({ children, requiredRole }) => {
-  const { user, loading } = useAuth()
+  const {       user, loading } = useAuth()
 
   if (loading) {
     return (

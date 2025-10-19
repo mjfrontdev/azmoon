@@ -32,8 +32,8 @@ export const AuthProvider = ({ children }) => {
       
       // Mock users data
       const mockUsers = [
-        { id: 1, email: 'admin@azmoon.com', password: 'admin123', role: 'admin', name: 'مدیر سیستم' },
-        { id: 2, email: 'user@azmoon.com', password: 'user123', role: 'user', name: 'کاربر تست' }
+        { id: 1, email: 'admin@azmoon.com', password: 'admin123', role: 'admin', name: 'مدیر سیستم', registeredAt: '2024-01-01T00:00:00.000Z' },
+        { id: 2, email: 'user@azmoon.com', password: 'user123', role: 'user', name: 'کاربر تست', registeredAt: '2024-01-15T00:00:00.000Z' }
       ]
       
       console.log('Available users:', mockUsers)
